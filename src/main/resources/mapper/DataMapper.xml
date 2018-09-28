@@ -33,6 +33,10 @@
         from data D
     </sql>
 
+    <select id="index" resultMap="data">
+        <include refid="selectdata"/>
+    </select>
+
     <select id="findById" resultMap="data">
         <include refid="selectdata"/>
         where D.id = #{id}

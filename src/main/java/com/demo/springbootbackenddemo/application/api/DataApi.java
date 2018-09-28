@@ -1,6 +1,7 @@
 package com.demo.springbootbackenddemo.application.api;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import com.demo.springbootbackenddemo.application.entity.dto.DataDto;
@@ -29,6 +30,13 @@ public class DataApi {
         this.dataQueryService = dataQuertService;
     }
 
+    @RequestMapping(path = "")
+    public ResponseEntity<?> index() {
+        return this.dataQueryService.index()
+            .map(dataList -> ResponseEntity.ok(dataListResponse(dataList)))
+            .orElseThrow(ResourceNotFoundException::new);
+    }
+
     @RequestMapping(path = "/{id}")
     public ResponseEntity<?> detail(@PathVariable("id") String id) {
         return this.dataQueryService.findById(id)
@@ -39,6 +47,12 @@ public class DataApi {
     private Map<String, Object> dataResponse(DataDto dataObj) {
         return new HashMap<String, Object>() {{
             put("data", dataObj);
+        }};
+    }
+
+    private Map<String, Object> dataListResponse(List<DataDto> dataList) {
+        return new HashMap<String, Object>() {{
+            put("dataList", dataList);
         }};
     }
 

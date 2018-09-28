@@ -1,6 +1,9 @@
 package com.demo.springbootbackenddemo.application.service;
 
+import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import com.demo.springbootbackenddemo.application.entity.domain.DataObject;
 import com.demo.springbootbackenddemo.application.entity.dto.DataDto;
@@ -17,6 +20,20 @@ public class DataQueryService {
     @Autowired
     public DataQueryService(DataRepository dataRepository) {
         this.dataRepository = dataRepository;
+    }
+
+    public Optional<List<DataDto>> index() {
+        List<DataDto> dataList = this.dataRepository.index()
+            .stream()
+            .filter(Objects::nonNull)
+            .map(this::convertToDto)
+            .collect(Collectors.toList());
+
+        if (dataList.size() < 1) {
+            return Optional.empty();
+        } else {
+            return Optional.of(dataList);
+        }
     }
 
     public Optional<DataDto> findById(String id) {

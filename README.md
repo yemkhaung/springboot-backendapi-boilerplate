@@ -1,6 +1,6 @@
-# A Java Backend Demo Application
+# A Java(SpringBoot) Backend API Boilerplate
 
-A demo Java Backend for Quick reference
+A SpringBoot Java API backend template for Quick reference
 
 
 ## Features

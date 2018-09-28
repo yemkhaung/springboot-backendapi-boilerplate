@@ -1,6 +1,8 @@
 package com.demo.springbootbackenddemo.infrastructure.mybatis.mapper;
 
 
+import java.util.List;
+
 import com.demo.springbootbackenddemo.application.entity.domain.DataObject;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -18,6 +20,8 @@ import org.springframework.stereotype.Component;
 @Mapper
 public interface DataMapper {
     void insert(@Param("data") DataObject article);
+
+    List<DataObject> index();
 
     DataObject findById(@Param("id") String id);
 

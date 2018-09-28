@@ -1,0 +1,21 @@
+<html   xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorator="layout">
+    <head>
+        <title>SpringBoot Backend Boilerplate</title>
+    </head>
+    <body>
+        <main>
+            <h1>Show Data</h1>
+            <article>
+                <p>ID : <span th:text="${data.id}"></span></p>
+                <p>Data ID : <span th:text="${data.dataId}"></span></p>
+                <p>Title : <span th:text="${data.title}"></span></p>
+                <p>Description : <span th:text="${data.description}"></span></p>
+                <p>Created At : <span th:text="${data.createdAt}"></span></p>
+                <p>Updated At : <span th:text="${data.updatedAt}"></span></p>
+            </article>
+            
+        </main>
+    </body>
+</html>

@@ -1,5 +1,6 @@
 package com.demo.springbootbackenddemo.application.repository;
 
+import java.util.List;
 import java.util.Optional;
 
 import com.demo.springbootbackenddemo.application.entity.domain.DataObject;
@@ -10,7 +11,10 @@ import com.demo.springbootbackenddemo.application.entity.domain.DataObject;
  * @author yemkhaung
  */
 public interface DataRepository {
+
     void save(DataObject data);
+
+    List<DataObject> index();
 
     DataObject findById(String id);
 
