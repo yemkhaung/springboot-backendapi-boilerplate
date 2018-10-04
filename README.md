@@ -20,20 +20,23 @@ A SpringBoot Java API backend template for Quick reference
 * Lombok for POJO method generation of getter, setter, constructor, etc.
 * Rest-assured for API testing
 * Restdocs for generating API documentation
-* JWT for API authentication
+* JWT for API token-based authentication
+* Spring Security for MVC authentication with users
 
 ## API Routes
 
-*Assuming we are building a blogging platform like Medium...*
-
-| URI               | Verb   | Action Description                  |
-| ----------------- | ------ | ----------------------------------- |
-| /blogs            | GET    | API for retrieving list of blogs    |
-| /blogs/list       | GET    | show list of blogs page             |
-| /blogs/:id        | GET    | API for retrieving one blog         |
-| /blogs/show/:id   | GET    | page for showing a detail blog info |
-| /blogs/create     | POST   | API for creating new blog           |
-| /blogs/new        | GET    | page for new blog register form     |
-| /blogs/update/:id | PUT    | API for updating an existing blog   |
-| /blogs/edit/:id   | GET    | page for blog edit                  |
-| /blogs/delete/:id | DELETE | API for deleting a blog             |
+| URI              | Verb   | Action Description                  |
+| ---------------- | ------ | ----------------------------------- |
+| /data            | GET    | API for retrieving list of data     |
+| /data/list       | GET    | show list of data page              |
+| /data/:id        | GET    | API for retrieving one data         |
+| /data/show/:id   | GET    | page for showing a detail data info |
+| /data            | POST   | API for creating new data           |
+| /data/new        | GET    | page for new data register form     |
+| /data/new        | POST   | maps to new data register controller action |
+| /data/:id        | PUT    | API for updating an existing data   |
+| /data/edit/:id   | GET    | page for data edit                  |
+| /data/edit/:id   | POST   | maps to data edit controller action |
+| /data/remove/:id | GET    | page for deleting a data            |
+| /data/remove/:id | POST   | maps to delete data controller action |
+| /data/:id        | DELETE | API for deleting a data             |

@@ -1,0 +1,68 @@
+<!doctype html>
+<html
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+  <head>
+    <title>Spring Boot Backend</title>
+    <link th:href="@{~/css/vendor/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{~/css/common.css}" rel="stylesheet">
+  </head>
+
+  <body>
+    <div>
+      <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+        <a th:href="@{~/dishes/list}" class="navbar-brand col-sm-3 col-md-2 mr-0">Spring Boot Backend</a>
+        <ul class="navbar-nav px-3">
+          <li class="nav-item text-nowrap">
+            <a class="nav-link" href="#">Sign out</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row">
+            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                <div class="sidebar-sticky">
+                    <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a th:href="@{~/dishes/list}" class="nav-link active">
+                        <span data-feather="stop-circle"></span>
+                        All Data
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                        <span data-feather="users"></span>
+                            Users
+                        </a>
+                    </li>
+                    </ul>
+                </div>
+            </nav>
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+
+
+                <div layout:fragment="content">
+                    Content to be replaced.
+                </div>
+
+
+            </main>
+      </div>
+    </div>
+
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script>window.jQuery || document.write('<script th:src="@{~/js/vendor/jquery.min.js}"><\/script>')</script>
+    <script th:src="@{~/js/vendor/popper.min.js}"></script>
+    <script th:src="@{~/js/vendor/bootstrap.min.js}"></script>
+    <!-- Icons -->
+    <script th:src="@{~/js/vendor/feather.min.js}"></script>
+    <script>
+        feather.replace()
+    </script>
+
+
+<!-- Icons -->
+</body>
+</html>

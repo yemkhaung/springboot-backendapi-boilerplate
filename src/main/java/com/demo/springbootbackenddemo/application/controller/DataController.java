@@ -35,4 +35,23 @@ public class DataController {
         model.addAttribute("data", data);
         return "data/show";
     }
+
+    @RequestMapping(value = "/new")
+    public String newData() {
+        return "data/new";
+    }
+
+    @RequestMapping(value = "/edit/{id}")
+    public String edit(Model model, @PathVariable String id) {
+        DataDto data = this.dataQueryService.findById(id).get();
+        model.addAttribute("data", data);
+        return "data/edit";
+    }
+
+    @RequestMapping(value = "/remove/{id}")
+    public String remove(Model model, @PathVariable String id) {
+        DataDto data = this.dataQueryService.findById(id).get();
+        model.addAttribute("data", data);
+        return "data/remove";
+    }
 }

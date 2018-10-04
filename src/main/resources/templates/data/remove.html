@@ -2,14 +2,14 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="~{layout}">
 
 <head>
-    <title>Data Details | Spring Boot Backend</title>
+    <title>Remove Data | Spring Boot Backend</title>
 </head>
 
 <body>
     <div layout:fragment="content">
 
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-            <h1 class="h2">Data Details</h1>
+            <h1 class="h2">Are you sure you want to delete?</h1>
         </div>
         <table class="table table-sm w-50">
             <tr>
@@ -38,6 +38,10 @@
             </tr>
         </table>
         <div class="w-100 mt-5">
+            <form th:action="@{'~/data/remove/' + ${data.id}}" method="post" class="w-50 mt-5">
+                <button class="btn btn-danger float-right" type="submit"><span data-feather="trash-2"></span>Yes, I am
+                    sure.</button>
+            </form>
             <a href="javascript:history.back()" class="btn btn-secondary"><span data-feather="arrow-left"></span>Back</a>
         </div>
 

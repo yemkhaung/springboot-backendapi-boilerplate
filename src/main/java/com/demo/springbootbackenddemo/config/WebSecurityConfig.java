@@ -30,6 +30,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .cors().and()
             .exceptionHandling().authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED)).and()
             .authorizeRequests()
+            .antMatchers("/css/**", "/js/**", "/img/**", "/favicon.ico").permitAll()
             .antMatchers("/data", "/data/**").permitAll()
             .anyRequest().authenticated();
     }
