@@ -6,7 +6,6 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import com.demo.springbootbackenddemo.application.entity.domain.DataObject;
-import com.demo.springbootbackenddemo.application.entity.dto.DataDto;
 import com.demo.springbootbackenddemo.application.repository.DataRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,11 +21,10 @@ public class DataQueryService {
         this.dataRepository = dataRepository;
     }
 
-    public Optional<List<DataDto>> index() {
-        List<DataDto> dataList = this.dataRepository.index()
+    public Optional<List<DataObject>> index() {
+        List<DataObject> dataList = this.dataRepository.index()
             .stream()
             .filter(Objects::nonNull)
-            .map(this::convertToDto)
             .collect(Collectors.toList());
 
         if (dataList.size() < 1) {
@@ -36,23 +34,12 @@ public class DataQueryService {
         }
     }
 
-    public Optional<DataDto> findById(String id) {
+    public Optional<DataObject> findById(String id) {
         DataObject dataObj = this.dataRepository.findById(id);
         if (dataObj == null) {
             return Optional.empty();  
         } else {
-            return Optional.of(convertToDto(dataObj));
+            return Optional.of(dataObj);
         }
-    }
-
-    private DataDto convertToDto(DataObject dataObj) {
-        return new DataDto(){{
-            this.setId(dataObj.getId());
-            this.setDataId(dataObj.getDataId());
-            this.setTitle(dataObj.getTitle());
-            this.setDescription(dataObj.getDescription());
-            this.setCreatedAt(dataObj.getCreatedAt().toString("YYYY MMM dd, hh:mm a"));
-            this.setUpdatedAt(dataObj.getUpdatedAt().toString("YYYY MMM dd, hh:mm a"));
-        }};
     }
 }

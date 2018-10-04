@@ -42,8 +42,8 @@
                             <td th:text="${data.dataId}"></td>
                             <td th:text="${data.title}"></td>
                             <td th:text="${data.description}"></td>
-                            <td th:text="${data.createdAt}"></td>
-                            <td th:text="${data.updatedAt}"></td>
+                            <td th:text="${#dates.format(data.createdAt, 'yyyy MMM dd, hh:mm a')}"></td>
+                            <td th:text="${#dates.format(data.updatedAt, 'yyyy MMM dd, hh:mm a')}"></td>
                             <td>
                                 <a th:href="@{'~/data/edit/' + ${data.id}}"><button class="btn btn-primary"><span data-feather="edit" class="mr-1"></span>Edit</button></a>
                                 <a th:href="@{'~/data/remove/' + ${data.id}}"><button class="btn btn-danger"><span data-feather="trash-2"></span></button></a>

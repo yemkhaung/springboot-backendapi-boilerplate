@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.demo.springbootbackenddemo.application.entity.dto.DataDto;
+import com.demo.springbootbackenddemo.application.entity.domain.DataObject;
 import com.demo.springbootbackenddemo.application.exception.ResourceNotFoundException;
 import com.demo.springbootbackenddemo.application.service.DataQueryService;
 
@@ -44,13 +44,13 @@ public class DataApi {
             .orElseThrow(ResourceNotFoundException::new);
     }
 
-    private Map<String, Object> dataResponse(DataDto dataObj) {
+    private Map<String, Object> dataResponse(DataObject dataObj) {
         return new HashMap<String, Object>() {{
             put("data", dataObj);
         }};
     }
 
-    private Map<String, Object> dataListResponse(List<DataDto> dataList) {
+    private Map<String, Object> dataListResponse(List<DataObject> dataList) {
         return new HashMap<String, Object>() {{
             put("dataList", dataList);
         }};
